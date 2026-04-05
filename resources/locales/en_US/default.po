@@ -1,0 +1,27 @@
+msgid ""
+msgstr ""
+"Language: en_US\n"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "My Cars"
+msgstr "My Cars"
+
+msgid "Add Car"
+msgstr "Add Car"
+
+msgid "Brand"
+msgstr "Brand"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Fuel Type"
+msgstr "Fuel Type"
+
+msgid "Save Car"
+msgstr "Save Car"
+
+msgid "Car saved successfully"
+msgstr "Car saved successfully"

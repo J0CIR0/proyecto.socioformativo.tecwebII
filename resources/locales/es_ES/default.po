@@ -1,0 +1,27 @@
+msgid ""
+msgstr ""
+"Language: es_ES\n"
+
+msgid "Dashboard"
+msgstr "Panel Principal"
+
+msgid "My Cars"
+msgstr "Mis Autos"
+
+msgid "Add Car"
+msgstr "Agregar Auto"
+
+msgid "Brand"
+msgstr "Marca"
+
+msgid "Model"
+msgstr "Modelo"
+
+msgid "Fuel Type"
+msgstr "Tipo de Combustible"
+
+msgid "Save Car"
+msgstr "Guardar Auto"
+
+msgid "Car saved successfully"
+msgstr "Auto guardado exitosamente"
