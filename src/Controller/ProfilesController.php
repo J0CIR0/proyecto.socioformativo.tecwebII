@@ -43,3 +43,27 @@ class ProfilesController extends AppController
         $this->set(compact('profile', 'idiomas'));
     }
 }
+
+    public function language()
+    {
+        $identity = $this->request->getAttribute('identity');
+        
+        if ($this->request->is(['post', 'put'])) {
+            $lang = $this->request->getData('idioma');
+            
+            $profile = $this->getTableLocator()->get('Profiles')
+                ->find()
+                ->where(['user_id' => $identity->id])
+                ->first();
+            
+            if ($profile) {
+                $profile->idioma = $lang;
+                $this->getTableLocator()->get('Profiles')->save($profile);
+            }
+            
+            I18n::setLocale($lang);
+            $this->Flash->success('Idioma cambiado a ' . ($lang === 'es_ES' ? 'Español' : 'English'));
+        }
+        
+        return $this->redirect($this->referer());
+    }
