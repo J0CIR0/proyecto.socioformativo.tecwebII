@@ -17,8 +17,8 @@ class AutosController extends AppController
     protected function _setLanguage(): void
     {
         $identity = $this->request->getAttribute('identity');
-        if ($identity && isset($identity->profile) && $identity->profile) {
-            $lang = $identity->profile->idioma;
+        if ($identity && isset($identity->profile)) {
+            $lang = $identity->profile->idioma ?? 'es_ES';
             I18n::setLocale($lang);
         } else {
             I18n::setLocale('es_ES');
@@ -29,13 +29,24 @@ class AutosController extends AppController
     {
         $search = $this->request->getQuery('search');
         $estado = $this->request->getQuery('estado');
-        $userId = $this->request->getAttribute('identity')->id;
+        $userId = $this->request->getAttribute('identity')->id ?? null;
         
-        $query = $this->Autos->find('filtered', [
-            'user_id' => $userId,
-            'search' => $search,
-            'estado' => $estado
-        ]);
+        if (!$userId) {
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+        }
+        
+        $query = $this->Autos->find()->where(['user_id' => $userId]);
+        
+        if (!empty($search)) {
+            $query->where(['OR' => [
+                'marca LIKE' => '%' . $search . '%',
+                'modelo LIKE' => '%' . $search . '%'
+            ]]);
+        }
+        
+        if (!empty($estado)) {
+            $query->where(['estado' => $estado]);
+        }
         
         $autos = $this->paginate($query, ['limit' => 10]);
         
@@ -77,7 +88,12 @@ class AutosController extends AppController
         $userId = $this->request->getAttribute('identity')->id;
         $auto = $this->Autos->find()
             ->where(['id' => $id, 'user_id' => $userId])
-            ->firstOrFail();
+            ->first();
+        
+        if (!$auto) {
+            $this->Flash->error('Auto no encontrado');
+            return $this->redirect(['action' => 'index']);
+        }
         
         if ($this->request->is(['patch', 'post', 'put'])) {
             $auto = $this->Autos->patchEntity($auto, $this->request->getData());
@@ -103,9 +119,9 @@ class AutosController extends AppController
         $userId = $this->request->getAttribute('identity')->id;
         $auto = $this->Autos->find()
             ->where(['id' => $id, 'user_id' => $userId])
-            ->firstOrFail();
+            ->first();
         
-        if ($this->Autos->delete($auto)) {
+        if ($auto && $this->Autos->delete($auto)) {
             $this->Flash->success(__('Car deleted successfully'));
         } else {
             $this->Flash->error(__('Error deleting car'));
