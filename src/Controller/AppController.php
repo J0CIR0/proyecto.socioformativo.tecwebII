@@ -19,39 +19,12 @@ class AppController extends Controller
     public function beforeFilter(EventInterface $event)
     {
         parent::beforeFilter($event);
-        $session = $this->request->getSession();
-        $locale = (string)$session->read('App.locale');
+        
         $identity = $this->request->getAttribute('identity');
-
-        if (!$locale && $identity && !empty($identity->idioma)) {
-            $locale = (string)$identity->idioma;
+        if ($identity && !empty($identity->idioma)) {
+            I18n::setLocale($identity->idioma);
+        } else {
+            I18n::setLocale('es_ES');
         }
-
-        if (!in_array($locale, ['es_ES', 'en_US'], true)) {
-            $locale = 'es_ES';
-        }
-
-        I18n::setLocale($locale);
-        $session->write('App.locale', $locale);
     }
 }
-
-    public function beforeFilter(EventInterface $event)
-    {
-        // Verificar sesión expirada
-        if ($this->request->getAttribute('identity') && !$this->request->getSession()->read('Auth')) {
-            $this->Authentication->logout();
-            $this->Flash->error('Sesión expirada');
-            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
-        }
-    }
-
-    public function beforeFilter(EventInterface $event)
-    {
-        // Verificar sesión expirada
-        if ($this->request->getAttribute('identity') && !$this->request->getSession()->read('Auth')) {
-            $this->Authentication->logout();
-            $this->Flash->error('Sesión expirada');
-            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
-        }
-    }
