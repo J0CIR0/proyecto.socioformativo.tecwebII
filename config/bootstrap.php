@@ -95,3 +95,6 @@ Router::reload();
 require CONFIG . 'routes.php';
 
 return new Application(CONFIG);
+
+    // Configurar límite de intentos de login
+    // 'rateLimit' => 5
