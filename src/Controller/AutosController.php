@@ -177,3 +177,7 @@ class AutosController extends AppController
     Log::write('info', 'Usuario ' . $identity->id . ' modificó auto ' . $auto->id);
 
     $autos = $this->paginate($query->contain(['Users']));
+
+    use Cake\Log\Log;
+    // En add, edit, delete
+    Log::write('info', 'Usuario ' . $identity->id . ' modificó auto ' . $auto->id);
