@@ -91,3 +91,9 @@
     </script>
 
     <div id="loading" style="display: none;">Cargando...</div>
+
+    <?php if ($this->Flash->render()): ?>
+        <div class="flash-messages">
+            <?= $this->Flash->render() ?>
+        </div>
+    <?php endif; ?>
