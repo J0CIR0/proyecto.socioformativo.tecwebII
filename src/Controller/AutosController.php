@@ -171,3 +171,7 @@ class AutosController extends AppController
     $hora = date('H');
     $saludo = $hora < 12 ? 'Buenos dias' : ($hora < 18 ? 'Buenas tardes' : 'Buenas noches');
     $this->set(compact('saludo'));
+
+    use Cake\Log\Log;
+    // En add, edit, delete
+    Log::write('info', 'Usuario ' . $identity->id . ' modificó auto ' . $auto->id);
