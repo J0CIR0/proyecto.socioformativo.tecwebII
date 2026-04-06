@@ -92,3 +92,13 @@ custom styles.
 - Ver todos los autos del sistema
 - Editar/Eliminar cualquier auto
 - Cambiar roles de usuarios
+
+## Stack Tecnológico
+
+| Tecnología | Versión | Uso |
+|------------|---------|-----|
+| PHP | 8.4 | Backend |
+| CakePHP | 5.3 | Framework MVC |
+| MariaDB | 10.6 | Base de datos |
+| Git | 2.x | Control de versiones |
+| GitHub | - | Repositorio remoto |
