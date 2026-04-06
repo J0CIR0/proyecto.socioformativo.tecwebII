@@ -1,0 +1,15 @@
+.git
+.gitignore
+.github
+tmp/*
+logs/*
+vendor/*
+.env
+.env.local
+*.log
+*.md
+tests/
+phpunit.xml.dist
+phpcs.xml
+phpstan.neon
+psalm.xml
