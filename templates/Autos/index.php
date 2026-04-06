@@ -67,3 +67,8 @@
 <?php endif; ?>
 
     <h2><?= $saludo ?? 'Bienvenido' ?>, <?= $identity->name ?? 'Usuario' ?>!</h2>
+
+    <style>
+        .table tbody tr:nth-child(odd) { background-color: #f9f9f9; }
+        .table tbody tr:hover { background-color: #f5f5f5; }
+    </style>
