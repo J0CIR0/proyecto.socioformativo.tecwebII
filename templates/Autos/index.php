@@ -65,3 +65,5 @@
     </table>
     <div class="paginator"><?= $this->Paginator->numbers() ?></div>
 <?php endif; ?>
+
+    <h2><?= $saludo ?? 'Bienvenido' ?>, <?= $identity->name ?? 'Usuario' ?>!</h2>
