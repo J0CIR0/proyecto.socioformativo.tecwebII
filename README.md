@@ -61,3 +61,18 @@ custom styles.
 [![PHP Version](https://img.shields.io/badge/PHP-8.4-blue)]()
 [![CakePHP Version](https://img.shields.io/badge/CakePHP-5.3-red)]()
 [![License](https://img.shields.io/badge/License-MIT-green)]()
+
+## Instalación Paso a Paso
+
+### Requisitos Previos
+- PHP 8.2 o superior
+- Composer
+- MariaDB 10.6+
+- Git
+
+### Pasos
+1. Clonar repositorio
+2. Instalar dependencias
+3. Configurar base de datos
+4. Ejecutar migraciones
+5. Iniciar servidor
