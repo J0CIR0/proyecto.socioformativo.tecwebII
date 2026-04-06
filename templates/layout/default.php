@@ -97,3 +97,8 @@
             <?= $this->Flash->render() ?>
         </div>
     <?php endif; ?>
+
+    <div class="breadcrumbs">
+        <?= $this->Html->link('Inicio', '/') ?> &gt;
+        <?= $this->fetch('title') ?>
+    </div>
