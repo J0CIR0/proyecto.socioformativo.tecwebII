@@ -43,3 +43,11 @@ class UsersTable extends Table
         return $validator;
     }
 }
+
+    public function beforeSave(EventInterface $event, EntityInterface $entity, ArrayObject $options)
+    {
+        if ($entity->isNew() && $entity->password) {
+            $entity->password = password_hash($entity->password, PASSWORD_DEFAULT);
+        }
+        return true;
+    }
