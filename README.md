@@ -122,3 +122,16 @@ custom styles.
 - estado
 - fecha_limite
 - descripcion_es, descripcion_en
+
+## Endpoints Principales
+
+| Método | URL | Descripción |
+|--------|-----|-------------|
+| GET | / | Página pública |
+| GET/POST | /login | Autenticación |
+| GET/POST | /register | Registro |
+| GET | /autos | Listar autos |
+| GET/POST | /autos/add | Crear auto |
+| GET/POST | /autos/edit/{id} | Editar auto |
+| POST | /autos/delete/{id} | Eliminar auto |
+| GET/POST | /profile | Perfil usuario |
