@@ -73,3 +73,11 @@
     </main>
 </body>
 </html>
+
+    <style>
+        @media (max-width: 768px) {
+            .top-nav-links { flex-direction: column; align-items: flex-start; }
+            .table { font-size: 12px; }
+            .table th, .table td { padding: 5px; }
+        }
+    </style>
