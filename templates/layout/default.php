@@ -81,3 +81,11 @@
             .table th, .table td { padding: 5px; }
         }
     </style>
+
+    <a href="#" id="back-to-top" style="position: fixed; bottom: 20px; right: 20px; display: none;">⬆️</a>
+    <script>
+        window.addEventListener('scroll', function() {
+            var btn = document.getElementById('back-to-top');
+            btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+    </script>
