@@ -135,3 +135,19 @@ custom styles.
 | GET/POST | /autos/edit/{id} | Editar auto |
 | POST | /autos/delete/{id} | Eliminar auto |
 | GET/POST | /profile | Perfil usuario |
+
+## Pruebas Recomendadas
+
+### Credenciales de Prueba
+- **Admin:** clarosrocajosue@gmail.com / Josue123
+- **User:** registrar nuevo en /register
+
+### Flujo de Prueba
+1. Registrar nuevo usuario
+2. Iniciar sesión
+3. Agregar 3 autos
+4. Filtrar por estado
+5. Editar un auto
+6. Eliminar un auto
+7. Cambiar idioma a inglés
+8. Cerrar sesión
