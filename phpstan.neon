@@ -5,3 +5,7 @@ parameters:
 		- config/bootstrap.php
 	paths:
 		- src/
+parameters:
+    level: 5
+    paths:
+        - src/
