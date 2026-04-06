@@ -90,3 +90,6 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
 
     // En middleware agregar
     // ->add(new CsrfProtectionMiddleware())
+
+    // En middleware agregar
+    // ->add(new CsrfProtectionMiddleware())
