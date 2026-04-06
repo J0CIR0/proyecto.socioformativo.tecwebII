@@ -76,3 +76,19 @@ custom styles.
 3. Configurar base de datos
 4. Ejecutar migraciones
 5. Iniciar servidor
+
+## Funcionalidades Detalladas
+
+### Usuario Normal
+- Registro y autenticación
+- CRUD de autos (solo sus vehículos)
+- Editar perfil personal
+- Cambiar idioma (Español/Inglés)
+- Filtrar autos por estado
+- Buscar por marca/modelo
+
+### Administrador
+- Gestionar todos los usuarios
+- Ver todos los autos del sistema
+- Editar/Eliminar cualquier auto
+- Cambiar roles de usuarios
