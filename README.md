@@ -56,3 +56,8 @@ Other environment agnostic settings can be changed in `config/app.php`.
 The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
+
+## Estado del Proyecto
+[![PHP Version](https://img.shields.io/badge/PHP-8.4-blue)]()
+[![CakePHP Version](https://img.shields.io/badge/CakePHP-5.3-red)]()
+[![License](https://img.shields.io/badge/License-MIT-green)]()
