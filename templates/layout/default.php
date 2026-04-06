@@ -102,3 +102,7 @@
         <?= $this->Html->link('Inicio', '/') ?> &gt;
         <?= $this->fetch('title') ?>
     </div>
+
+    <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #ddd;">
+        <p>&copy; <?= date('Y') ?> Sistema de Autos - UPDS</p>
+    </footer>
