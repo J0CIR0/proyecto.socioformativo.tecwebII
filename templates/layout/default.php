@@ -89,3 +89,5 @@
             btn.style.display = window.scrollY > 300 ? 'block' : 'none';
         });
     </script>
+
+    <div id="loading" style="display: none;">Cargando...</div>
