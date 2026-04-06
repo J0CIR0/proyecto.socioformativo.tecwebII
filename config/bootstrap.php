@@ -98,3 +98,5 @@ return new Application(CONFIG);
 
     // Configurar límite de intentos de login
     // 'rateLimit' => 5
+
+    Cache::setConfig('default', ['className' => 'File', 'duration' => '+1 hour']);
