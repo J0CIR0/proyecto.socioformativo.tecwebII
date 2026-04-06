@@ -35,3 +35,13 @@ class AppController extends Controller
         $session->write('App.locale', $locale);
     }
 }
+
+    public function beforeFilter(EventInterface $event)
+    {
+        // Verificar sesión expirada
+        if ($this->request->getAttribute('identity') && !$this->request->getSession()->read('Auth')) {
+            $this->Authentication->logout();
+            $this->Flash->error('Sesión expirada');
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+        }
+    }
