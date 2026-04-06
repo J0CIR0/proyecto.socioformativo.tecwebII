@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Language: es_ES\n"
 
-msgid "Dashboard"
-msgstr "Panel Principal"
-
 msgid "My Cars"
 msgstr "Mis Autos"
 
 msgid "Add Car"
 msgstr "Agregar Auto"
+
+msgid "Edit Car"
+msgstr "Editar Auto"
 
 msgid "Brand"
 msgstr "Marca"
@@ -18,10 +18,253 @@ msgid "Model"
 msgstr "Modelo"
 
 msgid "Fuel Type"
-msgstr "Tipo de Combustible"
+msgstr "Tipo Combustible"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Due Date"
+msgstr "Fecha Limite"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Filter by Status"
+msgstr "Filtrar por Estado"
 
 msgid "Save Car"
 msgstr "Guardar Auto"
 
 msgid "Car saved successfully"
 msgstr "Auto guardado exitosamente"
+
+msgid "Car deleted successfully"
+msgstr "Auto eliminado exitosamente"
+
+msgid "Error saving car"
+msgstr "Error al guardar auto"
+
+msgid "Profile"
+msgstr "Perfil"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Last Name"
+msgstr "Apellido"
+
+msgid "Profile updated"
+msgstr "Perfil actualizado"
+
+msgid "Login"
+msgstr "Iniciar Sesion"
+
+msgid "Logout"
+msgstr "Cerrar Sesion"
+
+msgid "Pending"
+msgstr "Pendiente"
+
+msgid "In Progress"
+msgstr "En Progreso"
+
+msgid "Completed"
+msgstr "Completado"
+
+msgid "Users"
+msgstr "Usuarios"
+
+msgid "Cars"
+msgstr "Autos"
+
+msgid "My Profile"
+msgstr "Mi Perfil"
+
+msgid "Register"
+msgstr "Registrarse"
+
+msgid "Change Password"
+msgstr "Cambiar Contrasena"
+
+msgid "Current Password"
+msgstr "Contrasena Actual"
+
+msgid "New Password"
+msgstr "Nueva Contrasena"
+
+msgid "Confirm Password"
+msgstr "Confirmar Contrasena"
+
+msgid "Save Profile"
+msgstr "Guardar Perfil"
+
+msgid "Perfil actualizado correctamente"
+msgstr "Perfil actualizado correctamente"
+
+msgid "Error al guardar el perfil"
+msgstr "Error al guardar el perfil"
+
+msgid "Idioma no valido"
+msgstr "Idioma no valido"
+
+msgid "La contrasena actual no es correcta"
+msgstr "La contrasena actual no es correcta"
+
+msgid "La nueva contrasena debe tener al menos 5 caracteres"
+msgstr "La nueva contrasena debe tener al menos 5 caracteres"
+
+msgid "La confirmacion de contrasena no coincide"
+msgstr "La confirmacion de contrasena no coincide"
+
+msgid "Idioma cambiado a {0}"
+msgstr "Idioma cambiado a {0}"
+
+msgid "No se pudo cambiar el idioma"
+msgstr "No se pudo cambiar el idioma"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Filter by Status"
+msgstr "Filtrar por Estado"
+
+msgid "All"
+msgstr "Todos"
+
+msgid "No cars registered yet. Add your first car."
+msgstr "No hay autos registrados. Agrega tu primer auto."
+
+msgid "User"
+msgstr "Usuario"
+
+msgid "Actions"
+msgstr "Acciones"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Delete this car?"
+msgstr "Eliminar este auto?"
+
+msgid "Description (Spanish)"
+msgstr "Descripcion (Espanol)"
+
+msgid "Description (English)"
+msgstr "Descripcion (Ingles)"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Users Management"
+msgstr "Gestion de Usuarios"
+
+msgid "Phone"
+msgstr "Telefono"
+
+msgid "Role"
+msgstr "Rol"
+
+msgid "Created"
+msgstr "Creado"
+
+msgid "Administrator"
+msgstr "Administrador"
+
+msgid "Customer"
+msgstr "Cliente"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Delete this user?"
+msgstr "Eliminar este usuario?"
+
+msgid "User Detail"
+msgstr "Detalle del Usuario"
+
+msgid "Personal Information"
+msgstr "Informacion Personal"
+
+msgid "Modified"
+msgstr "Modificado"
+
+msgid "Profile Name"
+msgstr "Nombre Perfil"
+
+msgid "Profile Last Name"
+msgstr "Apellido Perfil"
+
+msgid "User Cars"
+msgstr "Autos del Usuario"
+
+msgid "This user has no cars registered."
+msgstr "Este usuario no tiene autos registrados."
+
+msgid "Back to Users"
+msgstr "Volver a Usuarios"
+
+msgid "Please enter your email and password"
+msgstr "Por favor ingresa tu correo y contrasena"
+
+msgid "Sign in"
+msgstr "Iniciar sesion"
+
+msgid "Gasoline"
+msgstr "Gasolina"
+
+msgid "Diesel"
+msgstr "Diesel"
+
+msgid "Electric"
+msgstr "Electrico"
+
+msgid "Hybrid"
+msgstr "Hibrido"
+
+msgid "CNG"
+msgstr "GNC"
+
+msgid "Car not found"
+msgstr "Auto no encontrado"
+
+msgid "Car updated successfully"
+msgstr "Auto actualizado exitosamente"
+
+msgid "Error updating car"
+msgstr "Error al actualizar el auto"
+
+msgid "Error deleting car"
+msgstr "Error al eliminar el auto"
+
+msgid "Invalid email or password"
+msgstr "Correo o contrasena invalidos"
+
+msgid "User created successfully"
+msgstr "Usuario creado correctamente"
+
+msgid "Error creating user"
+msgstr "Error al crear usuario"
+
+msgid "You do not have permission to view this page"
+msgstr "No tienes permiso para ver esta pagina"
+
+msgid "User updated successfully"
+msgstr "Usuario actualizado correctamente"
+
+msgid "Error updating user"
+msgstr "Error al actualizar usuario"
+
+msgid "User deleted successfully"
+msgstr "Usuario eliminado correctamente"
+
+msgid "Error deleting user"
+msgstr "Error al eliminar usuario"
+
+msgid "Car System"
+msgstr "Sistema de Autos"

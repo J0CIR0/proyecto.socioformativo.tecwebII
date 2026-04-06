@@ -8,7 +8,7 @@ use Cake\I18n\I18n;
 
 class Auto extends Entity
 {
-    protected $_accessible = [
+    protected array $accessible = [
         'user_id' => true,
         'marca' => true,
         'modelo' => true,
@@ -19,9 +19,8 @@ class Auto extends Entity
         'descripcion_en' => true,
         'created' => true,
         'modified' => true,
-        'user' => true,
     ];
-
+    
     protected function _getDescripcion()
     {
         $locale = I18n::getLocale();

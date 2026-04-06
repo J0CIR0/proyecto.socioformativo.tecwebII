@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\I18n\I18n;
+use Authentication\PasswordHasher\DefaultPasswordHasher;
 
 class ProfilesController extends AppController
 {
@@ -16,54 +17,106 @@ class ProfilesController extends AppController
     public function edit()
     {
         $identity = $this->request->getAttribute('identity');
-        $userId = $identity->id;
         
-        $profile = $this->getTableLocator()->get('Profiles')
-            ->find()
-            ->where(['user_id' => $userId])
-            ->first();
-        
-        if (!$profile) {
-            $profile = $this->getTableLocator()->get('Profiles')->newEmptyEntity();
-            $profile->user_id = $userId;
+        if (!$identity) {
+            $this->Flash->error('Debes iniciar sesion');
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
         }
+        
+        $usersTable = $this->getTableLocator()->get('Users');
+        $user = $usersTable->get($identity->id);
         
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $profile = $this->getTableLocator()->get('Profiles')
-                ->patchEntity($profile, $this->request->getData());
-            
-            if ($this->getTableLocator()->get('Profiles')->save($profile)) {
-                $this->Flash->success(__('Profile updated'));
+            $data = $this->request->getData();
+
+            $profileData = [
+                'name' => $data['name'] ?? $user->name,
+                'last_name' => $data['last_name'] ?? $user->last_name,
+                'telefono' => $data['telefono'] ?? $user->telefono,
+                'idioma' => $data['idioma'] ?? $user->idioma,
+            ];
+
+            if (!in_array((string)$profileData['idioma'], ['es_ES', 'en_US'], true)) {
+                $this->Flash->error(__('Idioma no valido'));
+
                 return $this->redirect(['action' => 'edit']);
             }
-            $this->Flash->error('Error al guardar perfil');
+
+            $user = $usersTable->patchEntity($user, $profileData);
+
+            $currentPassword = (string)($data['current_password'] ?? '');
+            $newPassword = (string)($data['new_password'] ?? '');
+            $confirmPassword = (string)($data['confirm_password'] ?? '');
+
+            if ($newPassword !== '' || $confirmPassword !== '' || $currentPassword !== '') {
+                $hasher = new DefaultPasswordHasher();
+                $passwordMatches = $hasher->check($currentPassword, (string)$user->password) || $currentPassword === (string)$user->password;
+
+                if (!$passwordMatches) {
+                    $this->Flash->error(__('La contrasena actual no es correcta'));
+
+                    return $this->redirect(['action' => 'edit']);
+                }
+
+                if ($newPassword === '' || strlen($newPassword) < 5) {
+                    $this->Flash->error(__('La nueva contrasena debe tener al menos 5 caracteres'));
+
+                    return $this->redirect(['action' => 'edit']);
+                }
+
+                if ($newPassword !== $confirmPassword) {
+                    $this->Flash->error(__('La confirmacion de contrasena no coincide'));
+
+                    return $this->redirect(['action' => 'edit']);
+                }
+
+                $user->password = $newPassword;
+            }
+
+            if ($usersTable->save($user)) {
+                I18n::setLocale((string)$user->idioma);
+                $this->request->getSession()->write('App.locale', (string)$user->idioma);
+                $this->Flash->success(__('Perfil actualizado correctamente'));
+
+                return $this->redirect(['action' => 'edit']);
+            } else {
+                $this->Flash->error(__('Error al guardar el perfil'));
+            }
         }
         
-        $idiomas = ['es_ES' => 'Español', 'en_US' => 'English'];
-        $this->set(compact('profile', 'idiomas'));
+        $idiomas = ['es_ES' => 'Espanol', 'en_US' => 'English'];
+        $this->set(compact('user', 'idiomas'));
     }
-}
-
+    
     public function language()
     {
         $identity = $this->request->getAttribute('identity');
+
+        if (!$identity || !isset($identity->id)) {
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+        }
         
         if ($this->request->is(['post', 'put'])) {
-            $lang = $this->request->getData('idioma');
-            
-            $profile = $this->getTableLocator()->get('Profiles')
-                ->find()
-                ->where(['user_id' => $identity->id])
-                ->first();
-            
-            if ($profile) {
-                $profile->idioma = $lang;
-                $this->getTableLocator()->get('Profiles')->save($profile);
+            $lang = (string)$this->request->getData('idioma');
+
+            if (!in_array($lang, ['es_ES', 'en_US'], true)) {
+                $this->Flash->error(__('Idioma no valido'));
+                return $this->redirect($this->referer());
             }
+
+            $usersTable = $this->getTableLocator()->get('Users');
+            $user = $usersTable->get($identity->id);
+            $user->idioma = $lang;
             
-            I18n::setLocale($lang);
-            $this->Flash->success('Idioma cambiado a ' . ($lang === 'es_ES' ? 'Español' : 'English'));
+            if ($usersTable->save($user)) {
+                I18n::setLocale($lang);
+                $this->request->getSession()->write('App.locale', $lang);
+                $this->Flash->success(__('Idioma cambiado a {0}', $lang === 'es_ES' ? 'Espanol' : 'English'));
+            } else {
+                $this->Flash->error(__('No se pudo cambiar el idioma'));
+            }
         }
         
         return $this->redirect($this->referer());
     }
+}

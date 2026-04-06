@@ -1,0 +1,23 @@
+{
+    "require": {
+        "cakephp/cakephp": "^5.0",
+        "cakephp/migrations": "^4.0",
+        "cakephp/authentication": "^3.0",
+        "cakephp/authorization": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Test\\": "tests/",
+            "Cake\\Test\\": "vendor/cakephp/cakephp/tests/"
+        }
+    },
+    "require-dev": {
+        "cakephp/debug_kit": "^5.0",
+        "phpunit/phpunit": "^12"
+    }
+}

@@ -17,9 +17,8 @@ class AutosController extends AppController
     protected function _setLanguage(): void
     {
         $identity = $this->request->getAttribute('identity');
-        if ($identity && isset($identity->profile)) {
-            $lang = $identity->profile->idioma ?? 'es_ES';
-            I18n::setLocale($lang);
+        if ($identity && isset($identity->idioma)) {
+            I18n::setLocale($identity->idioma);
         } else {
             I18n::setLocale('es_ES');
         }
@@ -27,15 +26,18 @@ class AutosController extends AppController
     
     public function index()
     {
+        $identity = $this->request->getAttribute('identity');
         $search = $this->request->getQuery('search');
         $estado = $this->request->getQuery('estado');
-        $userId = $this->request->getAttribute('identity')->id ?? null;
         
-        if (!$userId) {
-            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+        $autosTable = $this->getTableLocator()->get('Autos');
+        $query = $autosTable->find();
+        
+        if ($identity->rol === 'admin') {
+            $query->contain(['Users']);
+        } else {
+            $query->where(['Autos.user_id' => $identity->id]);
         }
-        
-        $query = $this->Autos->find()->where(['user_id' => $userId]);
         
         if (!empty($search)) {
             $query->where(['OR' => [
@@ -61,15 +63,17 @@ class AutosController extends AppController
     
     public function add()
     {
-        $auto = $this->Autos->newEmptyEntity();
+        $identity = $this->request->getAttribute('identity');
+        $autosTable = $this->getTableLocator()->get('Autos');
+        $auto = $autosTable->newEmptyEntity();
         
         if ($this->request->is('post')) {
             $data = $this->request->getData();
-            $data['user_id'] = $this->request->getAttribute('identity')->id;
+            $data['user_id'] = $identity->id;
             
-            $auto = $this->Autos->patchEntity($auto, $data);
+            $auto = $autosTable->patchEntity($auto, $data);
             
-            if ($this->Autos->save($auto)) {
+            if ($autosTable->save($auto)) {
                 $this->Flash->success(__('Car saved successfully'));
                 return $this->redirect(['action' => 'index']);
             }
@@ -77,37 +81,63 @@ class AutosController extends AppController
             $this->Flash->error(__('Error saving car'));
         }
         
-        $tiposCombustible = ['Gasolina', 'Diésel', 'Eléctrico', 'Híbrido', 'GNC'];
-        $estados = ['pendiente', 'en_progreso', 'completado'];
+        $tiposCombustible = [
+            'Gasolina' => __('Gasoline'),
+            'Diesel' => __('Diesel'),
+            'Electrico' => __('Electric'),
+            'Hibrido' => __('Hybrid'),
+            'GNC' => __('CNG'),
+        ];
+        $estados = [
+            'pendiente' => __('Pending'),
+            'en_progreso' => __('In Progress'),
+            'completado' => __('Completed'),
+        ];
         
         $this->set(compact('auto', 'tiposCombustible', 'estados'));
     }
     
     public function edit($id = null)
     {
-        $userId = $this->request->getAttribute('identity')->id;
-        $auto = $this->Autos->find()
-            ->where(['id' => $id, 'user_id' => $userId])
-            ->first();
+        $identity = $this->request->getAttribute('identity');
+        $autosTable = $this->getTableLocator()->get('Autos');
+        
+        if ($identity->rol === 'admin') {
+            $auto = $autosTable->get($id);
+        } else {
+            $auto = $autosTable->find()
+                ->where(['id' => $id, 'user_id' => $identity->id])
+                ->first();
+        }
         
         if (!$auto) {
-            $this->Flash->error('Auto no encontrado');
+            $this->Flash->error(__('Car not found'));
             return $this->redirect(['action' => 'index']);
         }
         
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $auto = $this->Autos->patchEntity($auto, $this->request->getData());
+            $auto = $autosTable->patchEntity($auto, $this->request->getData());
             
-            if ($this->Autos->save($auto)) {
-                $this->Flash->success(__('Car saved successfully'));
+            if ($autosTable->save($auto)) {
+                $this->Flash->success(__('Car updated successfully'));
                 return $this->redirect(['action' => 'index']);
             }
             
-            $this->Flash->error(__('Error saving car'));
+            $this->Flash->error(__('Error updating car'));
         }
         
-        $tiposCombustible = ['Gasolina', 'Diésel', 'Eléctrico', 'Híbrido', 'GNC'];
-        $estados = ['pendiente', 'en_progreso', 'completado'];
+        $tiposCombustible = [
+            'Gasolina' => __('Gasoline'),
+            'Diesel' => __('Diesel'),
+            'Electrico' => __('Electric'),
+            'Hibrido' => __('Hybrid'),
+            'GNC' => __('CNG'),
+        ];
+        $estados = [
+            'pendiente' => __('Pending'),
+            'en_progreso' => __('In Progress'),
+            'completado' => __('Completed'),
+        ];
         
         $this->set(compact('auto', 'tiposCombustible', 'estados'));
     }
@@ -116,12 +146,18 @@ class AutosController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         
-        $userId = $this->request->getAttribute('identity')->id;
-        $auto = $this->Autos->find()
-            ->where(['id' => $id, 'user_id' => $userId])
-            ->first();
+        $identity = $this->request->getAttribute('identity');
+        $autosTable = $this->getTableLocator()->get('Autos');
         
-        if ($auto && $this->Autos->delete($auto)) {
+        if ($identity->rol === 'admin') {
+            $auto = $autosTable->get($id);
+        } else {
+            $auto = $autosTable->find()
+                ->where(['id' => $id, 'user_id' => $identity->id])
+                ->first();
+        }
+        
+        if ($auto && $autosTable->delete($auto)) {
             $this->Flash->success(__('Car deleted successfully'));
         } else {
             $this->Flash->error(__('Error deleting car'));

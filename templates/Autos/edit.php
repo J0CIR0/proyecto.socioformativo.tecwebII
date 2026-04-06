@@ -5,8 +5,8 @@
 <?= $this->Form->control('tipo_combustible', ['label' => __('Fuel Type'), 'options' => $tiposCombustible]) ?>
 <?= $this->Form->control('estado', ['label' => __('Status'), 'options' => $estados]) ?>
 <?= $this->Form->control('fecha_limite', ['label' => __('Due Date'), 'type' => 'date']) ?>
-<?= $this->Form->control('descripcion_es', ['label' => 'Descripción (Español)', 'type' => 'textarea']) ?>
-<?= $this->Form->control('descripcion_en', ['label' => 'Description (English)', 'type' => 'textarea']) ?>
+<?= $this->Form->control('descripcion_es', ['label' => __('Description (Spanish)'), 'type' => 'textarea']) ?>
+<?= $this->Form->control('descripcion_en', ['label' => __('Description (English)'), 'type' => 'textarea']) ?>
 <?= $this->Form->button(__('Save Car')) ?>
-<?= $this->Html->link('Cancelar', ['action' => 'index']) ?>
+<?= $this->Html->link(__('Cancel'), ['action' => 'index']) ?>
 <?= $this->Form->end() ?>

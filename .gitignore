@@ -1,0 +1,51 @@
+# CakePHP specific
+/tmp/
+/logs/
+/vendor/
+/bin/cake
+/bin/cake.bat
+/composer.lock
+/.env
+/.env.local
+/config/.env
+/config/app_local.php
+
+# IDE files
+/.idea/
+/.vscode/
+/*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and cache
+*.log
+*.cache
+tmp/
+logs/
+sessions/
+
+# Credentials and sensitive data
+**/password
+**/.env
+**/app_local.php
+
+# User specific
+webroot/css/
+webroot/js/
+webroot/fonts/
+webroot/img/
+
+# Composer
+composer.phar
+vendor/
+
+# PHPUnit
+.phpunit.result.cache
+phpunit.xml
+
+# Backup files
+*.bak
+*.backup
+*~

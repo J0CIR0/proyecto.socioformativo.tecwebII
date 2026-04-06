@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Language: en_US\n"
 
-msgid "Dashboard"
-msgstr "Dashboard"
-
 msgid "My Cars"
 msgstr "My Cars"
 
 msgid "Add Car"
 msgstr "Add Car"
+
+msgid "Edit Car"
+msgstr "Edit Car"
 
 msgid "Brand"
 msgstr "Brand"
@@ -20,8 +20,251 @@ msgstr "Model"
 msgid "Fuel Type"
 msgstr "Fuel Type"
 
+msgid "Status"
+msgstr "Status"
+
+msgid "Due Date"
+msgstr "Due Date"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Filter by Status"
+msgstr "Filter by Status"
+
 msgid "Save Car"
 msgstr "Save Car"
 
 msgid "Car saved successfully"
 msgstr "Car saved successfully"
+
+msgid "Car deleted successfully"
+msgstr "Car deleted successfully"
+
+msgid "Error saving car"
+msgstr "Error saving car"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "Language"
+msgstr "Language"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Last Name"
+msgstr "Last Name"
+
+msgid "Profile updated"
+msgstr "Profile updated"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "In Progress"
+msgstr "In Progress"
+
+msgid "Completed"
+msgstr "Completed"
+
+msgid "Users"
+msgstr "Users"
+
+msgid "Cars"
+msgstr "Cars"
+
+msgid "My Profile"
+msgstr "My Profile"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Change Password"
+msgstr "Change Password"
+
+msgid "Current Password"
+msgstr "Current Password"
+
+msgid "New Password"
+msgstr "New Password"
+
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+msgid "Save Profile"
+msgstr "Save Profile"
+
+msgid "Perfil actualizado correctamente"
+msgstr "Profile updated successfully"
+
+msgid "Error al guardar el perfil"
+msgstr "Error saving profile"
+
+msgid "Idioma no valido"
+msgstr "Invalid language"
+
+msgid "La contrasena actual no es correcta"
+msgstr "Current password is incorrect"
+
+msgid "La nueva contrasena debe tener al menos 5 caracteres"
+msgstr "New password must have at least 5 characters"
+
+msgid "La confirmacion de contrasena no coincide"
+msgstr "Password confirmation does not match"
+
+msgid "Idioma cambiado a {0}"
+msgstr "Language changed to {0}"
+
+msgid "No se pudo cambiar el idioma"
+msgstr "Could not change language"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Filter by Status"
+msgstr "Filter by Status"
+
+msgid "All"
+msgstr "All"
+
+msgid "No cars registered yet. Add your first car."
+msgstr "No cars registered yet. Add your first car."
+
+msgid "User"
+msgstr "User"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Delete this car?"
+msgstr "Delete this car?"
+
+msgid "Description (Spanish)"
+msgstr "Description (Spanish)"
+
+msgid "Description (English)"
+msgstr "Description (English)"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Users Management"
+msgstr "Users Management"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Role"
+msgstr "Role"
+
+msgid "Created"
+msgstr "Created"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Customer"
+msgstr "Customer"
+
+msgid "View"
+msgstr "View"
+
+msgid "Delete this user?"
+msgstr "Delete this user?"
+
+msgid "User Detail"
+msgstr "User Detail"
+
+msgid "Personal Information"
+msgstr "Personal Information"
+
+msgid "Modified"
+msgstr "Modified"
+
+msgid "Profile Name"
+msgstr "Profile Name"
+
+msgid "Profile Last Name"
+msgstr "Profile Last Name"
+
+msgid "User Cars"
+msgstr "User Cars"
+
+msgid "This user has no cars registered."
+msgstr "This user has no cars registered."
+
+msgid "Back to Users"
+msgstr "Back to Users"
+
+msgid "Please enter your email and password"
+msgstr "Please enter your email and password"
+
+msgid "Sign in"
+msgstr "Sign in"
+
+msgid "Gasoline"
+msgstr "Gasoline"
+
+msgid "Diesel"
+msgstr "Diesel"
+
+msgid "Electric"
+msgstr "Electric"
+
+msgid "Hybrid"
+msgstr "Hybrid"
+
+msgid "CNG"
+msgstr "CNG"
+
+msgid "Car not found"
+msgstr "Car not found"
+
+msgid "Car updated successfully"
+msgstr "Car updated successfully"
+
+msgid "Error updating car"
+msgstr "Error updating car"
+
+msgid "Error deleting car"
+msgstr "Error deleting car"
+
+msgid "Invalid email or password"
+msgstr "Invalid email or password"
+
+msgid "User created successfully"
+msgstr "User created successfully"
+
+msgid "Error creating user"
+msgstr "Error creating user"
+
+msgid "You do not have permission to view this page"
+msgstr "You do not have permission to view this page"
+
+msgid "User updated successfully"
+msgstr "User updated successfully"
+
+msgid "Error updating user"
+msgstr "Error updating user"
+
+msgid "User deleted successfully"
+msgstr "User deleted successfully"
+
+msgid "Error deleting user"
+msgstr "Error deleting user"
+
+msgid "Car System"
+msgstr "Car System"
