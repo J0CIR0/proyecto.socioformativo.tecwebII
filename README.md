@@ -102,3 +102,23 @@ custom styles.
 | MariaDB | 10.6 | Base de datos |
 | Git | 2.x | Control de versiones |
 | GitHub | - | Repositorio remoto |
+
+## Estructura de Base de Datos
+
+### Tabla users
+- id (PK)
+- name, last_name
+- correo (único)
+- password (bcrypt)
+- phone
+- idioma (es_ES/en_US)
+- rol (admin/user)
+
+### Tabla autos
+- id (PK)
+- user_id (FK)
+- marca, modelo
+- tipo_combustible
+- estado
+- fecha_limite
+- descripcion_es, descripcion_en
