@@ -166,3 +166,8 @@ class AutosController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 }
+
+    // En index, agregar saludo
+    $hora = date('H');
+    $saludo = $hora < 12 ? 'Buenos dias' : ($hora < 18 ? 'Buenas tardes' : 'Buenas noches');
+    $this->set(compact('saludo'));
